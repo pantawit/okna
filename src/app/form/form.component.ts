@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  formGroup: FormGroup;
 
-  constructor() { }
+  constructor(
+    private formBulid : FormBuilder
+  ) {
+    
+  }
 
   ngOnInit() {
+    this.formGroup =  this.formBulid.group({
+      firstName: this.formBulid.control(''),
+      lastName: ['']
+    })
   }
 
 }
